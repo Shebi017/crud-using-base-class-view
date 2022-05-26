@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%} {% endblock %}</title>
+    <!-- Tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-mono">
+    <nav class="bg-blue-500 py-3 px-5 text-white flex justify-between items-center">
+        <a href="/"><h2 class="text-xl font-bold">Todo App</h2></a>
+        <div>
+            <a href="/">Home</a>
+            <a href="/create/" class="py-2 px-4 bg-yellow-500 text-white ml-3 rounded-lg text-xl">Create</a>
+        </div>
+    </nav>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="px-5 py-3 bg-green-200">
+                <p class="text-lg font-sans">{{message}}</p>
+            </div>  
+        {% endfor %}
+    {% endif %}
+
+    {% block main %}
+
+    {% endblock %}
+
+    <footer>
+        <h4>Footer of the page</h4>
+    </footer>
+</body>
+</html>

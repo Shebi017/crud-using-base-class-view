@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<h2 class="text-center my-4 text-4xl font-bold">Home Page</h2>
+<h4 class="my-2 text-xl font-semibold text-center text-red-400">Total number of todos : {{count}} </h4>
+
+<div class="container mx-auto">
+    {% for i in todos %}
+        <div class="card py-12 px-8 shadow-lg border-black border-2 rounded-lg my-5">
+            <h3 class="text-xl font-bold text-center my-2">{{i.heading}}</h3>
+            <span class="bg-blue-500 text-white px-3 py-2 rounded-lg my-2">{{i.category.name}}</span>
+            <p class="my-2 text-lg">{{i.body | truncatechars:300}}</p>
+
+            <a href="/todos/{{i.id}}/" class="my-2 text-blue-600">Read more</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

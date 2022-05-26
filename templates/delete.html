@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{todo.heading}}
+{% endblock %}
+
+{% block main %}
+
+<div class="my-3">
+    <h2 class="text-xl font-semibold text-center">Are you sure you want to delete <span class="text-xl font-bold text-blue-400">{{todo.heading}}</span> ? </h2>
+
+    <form action="" method="POST" class="text-center">
+        {% csrf_token %}
+        <input type="submit" value="YES" class="px-5 rounded-lg cursor-pointer mt-3 py-2 bg-red-500 text-white text-xl">
+    </form>
+</div>
+
+{% endblock main %}

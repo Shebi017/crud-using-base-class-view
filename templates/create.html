@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+Create Todo
+
+{% endblock %}
+
+
+{% block main %}
+<div class="container py-3 mx-auto">
+    <h2 class="text-center text-2xl font-bold font-sans">Create New Todo</h2>
+
+    <form action="" method="POST" class="p-20">
+        {% csrf_token %}
+        <div class="my-3">
+            <label for="heading">Enter todo heading</label><br>
+            <input type="text" name="heading" id="heading" class="px-3 py-2 border-gray-400 border-2 my-1 rounded-md w-[90%]"><br>
+        </div>
+        <div class="my-3">
+            <label for="body">Enter todo description</label><br>
+            <textarea name="body" id="" cols="30" rows="7" class="border-gray-400 border-2 rounded-lg w-[90%] p-8"></textarea>
+        </div>
+        <div class="my-3">
+            <label for="category">Select category</label><br>
+            <select name="category" id="" class="px-3 py-2 border-gray-400 border-2 my-1 rounded-md w-[90%]">
+                <option value="" selected disabled>Select category</option>
+                {% for i in categories %}
+                    <option value="{{i.id}}">{{i.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <input type="submit" value="CREATE" class="py-2 px-4 text-xl bg-blue-500 text-white my-3 rounded-lg">
+    </form>
+</div>
+{% endblock %}
